@@ -1,0 +1,6 @@
+flask
+python-dotenv
+Flask-SQLAlchemy
+marshmallow
+marshmallow-sqlalchemy
+flask_restful

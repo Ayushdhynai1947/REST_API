@@ -1,0 +1,1 @@
+pip install -r requirements.txt (to install the all the package ) note : it should be outside the virtual env
