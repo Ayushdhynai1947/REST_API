@@ -13,11 +13,14 @@ example_route = Blueprint('example_route',__name__)
 
 # Add  resource(s) to the blueprint
 emp_resource = EmpResource
+mysql_resource = MySQLResource
+
+
 
 
 
 #Define a route within the Bluepint
-example_route.add_url_rule('/mysql', view_func=mysql_resourcse.as_view('mysql'))
+example_route.add_url_rule('/mysql', view_func=mysql_resource.as_view('mysql'))
 
 
 example_route.add_url_rule('/employees', view_func=emp_resource.as_view('employees'),methods=['GET','POST'])
