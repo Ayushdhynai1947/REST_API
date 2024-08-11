@@ -68,3 +68,31 @@ class EmpResource(Resource):
             if not employee:
                 return { 'message': 'Employee not found'}, 404
             
+            employee.name = data.get('name',employee.name)
+            employee.email = data.get('email',employee.email)
+            data_of_birth_str = data.get('date_of_birth',str(employee.date_of_birth))
+            employee.date_of_birth = datetime.strftime(data_of_birth_str,'%Y-%m-%d').date()
+            
+            db.session.commit()
+            return jsonify({'message': 'Employee updated successfully', 'employee': {
+                'id': employee.id,
+                'name': employee.name,
+                'email': employee.email,
+                'date_of_birth': str(employee.date_of_birth),
+                'phone_number': employee.phone_number
+            }})
+        except Exception as e:
+            return {'error': f'An error occurred while updating the employee: {str(e)}'}, 500            
+    
+    
+    def delete(self,employee_id):
+        try:
+            employee = Employee.query.get(employee_id)
+            if not employee:
+                return { 'message':'Employee not found'},404
+            
+            db.session.delete(employee)
+            db.session.commit()
+            return {'message': 'Employee deleted successfully'}
+        except Exception as e:
+            return {'error': f'An error occurred while deleting the employee: {str(e)}'}, 500

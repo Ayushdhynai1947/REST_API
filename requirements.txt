@@ -1,6 +1,10 @@
-flask
+Flask
 python-dotenv
 Flask-SQLAlchemy
 marshmallow
 marshmallow-sqlalchemy
 flask_restful
+Flask-SQLAlchemy
+Flask-RESTful
+mysql-connector-python
+SQLAlchemy
