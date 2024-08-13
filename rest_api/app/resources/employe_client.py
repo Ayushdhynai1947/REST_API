@@ -36,6 +36,7 @@ class EmpResource(Resource):
         except Exception as e:
             return {'error': f'An unexpected error occurred: {str(e)}'}, 500
 
+
     def post(self):
         try :
             data = request.json
@@ -61,6 +62,7 @@ class EmpResource(Resource):
         except Exception as e:
             return {'error': f'An error occured while creating the employee:{str(e)}'},500
         
+        
     def put(self,employee_id):
         try:
             data = request.json
@@ -85,6 +87,7 @@ class EmpResource(Resource):
             return {'error': f'An error occurred while updating the employee: {str(e)}'}, 500            
     
     
+    
     def delete(self,employee_id):
         try:
             employee = Employee.query.get(employee_id)
@@ -96,3 +99,7 @@ class EmpResource(Resource):
             return {'message': 'Employee deleted successfully'}
         except Exception as e:
             return {'error': f'An error occurred while deleting the employee: {str(e)}'}, 500
+        
+        
+        
+    

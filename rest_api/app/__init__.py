@@ -11,7 +11,7 @@ def create_app():
     
     # Configuration for SQLite database
     config_client = ConfigClient(env='dev')
-    app.config['SQLALCHEMY_DATABASE_URI'] = config_client.get_value('database', 'ur1')
+    app.config['SQLALCHEMY_DATABASE_URI'] = config_client.get_value('Database', 'uri1')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
     db.init_app(app)
